@@ -1,5 +1,11 @@
 import { Fragment } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { styles } from "./styles";
 import { Participant } from "../../components/Participant";
 
@@ -42,15 +48,17 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      {participants.map((participants) => (
-        <Participant
-          key={participants}
-          name={participants}
-          onRemove={() => {
-            handleParticipantRemove("Wesley");
-          }}
-        />
-      ))}
+      <ScrollView>
+        {participants.map((participants) => (
+          <Participant
+            key={participants}
+            name={participants}
+            onRemove={() => {
+              handleParticipantRemove("Wesley");
+            }}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 }
