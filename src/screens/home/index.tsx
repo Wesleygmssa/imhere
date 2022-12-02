@@ -4,8 +4,25 @@ import { styles } from "./styles";
 import { Participant } from "../../components/Participant";
 
 export default function Home() {
+  const participants = [
+    "Rodigo",
+    "Vini",
+    "Diego",
+    "Biro",
+    "isa",
+    "Johannes",
+    "Julien",
+    "keyboardType",
+    "Mathias",
+    "Mariana",
+    "Romario",
+  ];
   function handleParticipantAdd() {
     console.log("Você clicou no botão de Adicionar");
+  }
+
+  function handleParticipantRemove(name: string) {
+    console.log("Você clicou no botão de Remover" + name);
   }
   return (
     <View style={styles.conatiner}>
@@ -25,7 +42,15 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      <Participant />
+      {participants.map((participants) => (
+        <Participant
+          key={participants}
+          name={participants}
+          onRemove={() => {
+            handleParticipantRemove("Wesley");
+          }}
+        />
+      ))}
     </View>
   );
 }
