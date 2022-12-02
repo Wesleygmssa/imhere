@@ -48,7 +48,7 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {participants.map((participants) => (
           <Participant
             key={participants}
